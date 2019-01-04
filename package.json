@@ -15,16 +15,18 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "crypto-js": "^3.1.9-1",
     "expect": "^23.6.0",
     "express": "^4.16.4",
-    "i": "^0.3.6",
+    "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.11",
     "mocha": "^5.2.0",
-    "mongodb": "^3.1.8",
-    "mongoose": "^5.3.4",
-    "nodemon": "^1.18.4",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.2",
+    "nodemon": "^1.18.9",
     "npm-run": "^5.0.1",
     "request": "^2.88.0",
-    "supertest": "^3.3.0"
+    "supertest": "^3.3.0",
+    "validator": "^10.10.0"
   }
 }
