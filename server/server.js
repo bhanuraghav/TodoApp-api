@@ -14,9 +14,7 @@ var app = express();
 // const port = process.env.PORT || 3000;
 const port = process.env.PORT;
 
-
 app.use(bodyParser.json());
-
 
 app.post('/todos',(req,res)=>{
     var todo = new Todo({
@@ -25,7 +23,6 @@ app.post('/todos',(req,res)=>{
     todo.save().then((doc)=>{
         res.send(doc);
     },(e)=>{
- 
         res.status(400).send(e);
     })
    // console.log(req.body);
@@ -41,7 +38,6 @@ app.get('/todos',(req,res)=>{
     //     res.send({user})
     // },(e)=>{
     //     res.status(400).send(e);
-
     // })
 })
 
@@ -114,10 +110,21 @@ app.patch('/todos/:id',(req,res)=>{
         res.send({todo});
    }).catch((e)=>{
        res.status(400).send();
-   })
-    
+   })  
 })
 
+app.post('/users',(req,res)=>{
+    var body = _.pick(req.body,['email','password']);
+    var user = new User(body);
+    user.save().then((user)=>{
+        return user.generateAuthToken();
+        // res.send(user);
+    }).then((token)=>{
+        res.header('x-auth',token).send(user);
+    }).catch((e)=>{
+        res.status(400).send(e);
+    })
+})
 
 app.listen(port,()=>{
     console.log(`Started on port ${port}`);
