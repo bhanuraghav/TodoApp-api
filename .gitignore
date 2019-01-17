@@ -2,3 +2,5 @@ node_modules/
 .vscode/
 notes.txt
 playground/
+server/config/config.json
+server/config/sample_previous_configJS.js
